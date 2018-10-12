@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+ 
+int main() {
+char frase[1][1002];
+    
+int num = 0;
+int trigger = 0; 
+int i = 0; 
+while(scanf("%s",frase[i])!=EOF){
+	for(int j = 0; j< strlen(frase[i]); j++){
+		if(num <= 0 && frase[i][j] == ')'){
+			trigger++;
+			}
+		else if(frase[i][j] == ')'){
+			num--;
+		}
+		
+		else if (frase[i][j] == '('){
+			num++;
+		}
+	}
+	if(trigger == 1){
+		printf("incorrect\n");
+	}
+	
+	else if(num > 0){
+		printf("incorrect\n");
+	}
+	else printf("correct\n");
+	num = 0;
+	trigger = 0;
+
+}
+    return 0;
+}
